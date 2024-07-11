@@ -1,0 +1,25 @@
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100px;
+    max-width: 300px;
+}
+
+.contentContainer {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+.content {
+  flex-grow: 2;
+}
+
+.actions{
+  align-items: center;
+  width: 20%;
+}
