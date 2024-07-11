@@ -12,6 +12,8 @@ import Index from './route/index'
 import ActivityPage from './route/activity'
 import User from './route/user'
 import Category from './route/category'
+import UserEdit from './route/userEdit'
+
 import './index.css'
 
 const router = createBrowserRouter([
@@ -22,17 +24,22 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Index /> },
       {
-        path: '/activity',
+        path: '/activities',
         element: <ActivityPage />,
         errorElement: <ErrorPage />,
       },
       {
-        path: '/user',
+        path: '/users',
         element: <User />,
         errorElement: <ErrorPage />,
       },
       {
-        path: '/category',
+        path: '/user/:userId',
+        element: <UserEdit />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: '/categories',
         element: <Category />,
         errorElement: <ErrorPage />,
       },

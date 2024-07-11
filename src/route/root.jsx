@@ -9,24 +9,7 @@ export default function Root() {
   return (
     <>
       <div id="sidebar">
-        {/* <h1>React Router Contacts</h1> */}
-        <div>
-          <form id="search-form" role="search">
-            <input
-              id="q"
-              aria-label="Search contacts"
-              placeholder="Search"
-              type="search"
-              name="q"
-            />
-            <div id="search-spinner" aria-hidden hidden={true} />
-            <div className="sr-only" aria-live="polite"></div>
-          </form>
-          <form method="post">
-            <button type="submit">New</button>
-          </form>
-        </div>
-
+       
         <nav>
         <NavLink
             to={`/`}
@@ -37,7 +20,7 @@ export default function Root() {
             Início
           </NavLink>
           <NavLink
-            to={`/user`}
+            to={`/users`}
             className={({ isActive, isPending }) =>
               isActive ? 'active' : isPending ? 'pending' : ''
             }
@@ -45,7 +28,7 @@ export default function Root() {
             Usuarios
           </NavLink>
           <NavLink
-            to={`/category`}
+            to={`/categories`}
             className={({ isActive, isPending }) =>
               isActive ? 'active' : isPending ? 'pending' : ''
             }
@@ -53,7 +36,7 @@ export default function Root() {
             Categorias
           </NavLink>
           <NavLink
-            to={`/activity`}
+            to={`/activities`}
             className={({ isActive, isPending }) =>
               isActive ? 'active' : isPending ? 'pending' : ''
             }

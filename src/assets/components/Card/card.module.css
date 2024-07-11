@@ -1,0 +1,83 @@
+#cardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  width: 80%;
+  max-width: 1000px;
+  margin: 1.6rem 0;
+
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.cardContainer:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#cardContainer h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  color: #333333;
+}
+
+#contentContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+  line-height: 1.2rem;
+  color: #666666;
+  column-gap: 1.2rem;
+}
+
+.content label {
+  margin: 1.2rem,0, 0.6rem, 0;
+}
+
+
+.content input{
+  width: 90%;
+  padding: 0.5rem;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  outline: none;
+
+}
+
+.actionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.actionContainer button {
+  width: 100px;
+  padding: 0.5rem;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.actionContainer button[role='remover'] {
+  background-color: #f44250;
+  color: white;
+}
+
+.actionContainer button[role='remover']:hover {
+  background-color: rgb(187, 3, 3);
+}
