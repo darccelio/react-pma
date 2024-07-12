@@ -37,13 +37,9 @@ export async function RemoveUser(id) {
       method: 'DELETE',
     })
 
-    if (response.status === 204) {
-      console.log(`USER REMOVED: User with ID ${id} successfully removed.`);
-      return { success: true };
-    }
-    else{
-      console.error(`USER not REMOVED: User with ID ${id} not removed.`);
-      throw new Error(response.message)
+    
+    if (!response.ok) {
+      throw new Error(`Erro: ${response.status}`);
     }
     
   } catch (error) {

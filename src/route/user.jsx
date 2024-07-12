@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import { GetUsers, RemoveUser } from '../services/user-service'
 import FormataData from '../services/uteis-service'
 import Card from '../assets/components/Card/card'
 import Container from '../assets/components/Container/container'
 
+
 export default function User() {
   const [userList, setUserList] = useState([])
   const [error, setError] = useState('')
+  const navigate = useNavigate();
 
   useEffect(() => {
     GetUsers()
@@ -34,13 +37,25 @@ export default function User() {
     }
   }
 
+  const handleClickNovo = () => {
+    navigate("/user/new");    
+  };
+
   return (
     <>
       <div>
         <h1>Lista de Usuários</h1>
-      
       </div>
-      <Container>
+      <Container>       
+        <div>
+          <button
+            id="novo"
+            type="button"
+            onClick={handleClickNovo}
+          >
+            Criar Usuário
+          </button>
+        </div>
         {userList.some ? (
           userList.map(user => (
             <div key={user.id}>
@@ -48,9 +63,16 @@ export default function User() {
                 props={user}
                 editPath={`/user/${user.id}`}
                 handleRemove={() => handleRemove(user.id)}
+                title={`Usuário: ${user.id}`}
               >
                 <>
-                  <p>id: {user.id}</p>
+                  <p>Id: {user.id}</p>
+                  <p>
+                    name:{' '}
+                    {user.firstName || user.lastName
+                      ? `${user.firstName} ${user.lastName}`
+                      : 'Usuário desconhecido'}
+                  </p>
                   <p>password: {user.password}</p>
                   <p>createdAt: {FormataData(user.createdAt)}</p>
                   <p>updatedAt: {FormataData(user.updatedAt)}</p>
@@ -61,10 +83,10 @@ export default function User() {
           ))
         ) : (
           <div>
-            <p>Lista de Usuarios está vazia</p>
+            <p>Lista de Usuários está vazia</p>
           </div>
         )}
       </Container>
     </>
-  )
+  );
 }
